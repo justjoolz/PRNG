@@ -39,8 +39,6 @@ import PRNG from "./PRNG.cdc"
  */
 
 pub contract Random {
-    pub var test: Struct
-
     // A resource that is only used for generating a 'random' salt from it's uuid
     pub resource Salt {
         init() {}
@@ -171,22 +169,4 @@ pub contract Random {
             self.weights = weights
         }
     }
-
-    init() {
-        self.test = Struct(offset: 1)
-
-        var sampleSize = 350
-        while sampleSize > 0 {
-            self.test.addUFix64(trait: sampleSize.toString())
-            sampleSize = sampleSize - 1
-        } 
-        // self.test.addRange(trait: "Age", min: 0, max: 100)
-        // self.test.addWeightedChoice(trait: "Brightness", choices: [0.1, 0.2, 0.3], weights: [1, 2, 3])
-        self.test.addWeightedChoice(trait: "head", choices: ["Big", "Small", "Fancy"], weights: [49, 49, 2])
-
-        // self.test.resolve()
-        log(self.test.getTraits()) // returns ["Hue": nil, "Saturation": nil, "Brightness": nil, "head": nil]
-    }
 }
-
-// create a metadata view for the probabilities etc.
