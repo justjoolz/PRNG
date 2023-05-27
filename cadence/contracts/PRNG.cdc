@@ -55,9 +55,9 @@ pub contract PRNG {
             } 
             let p = self.g() % totalWeight
             var lastWeight: UInt128 = 0
-
-            for i, choice in choices {    
-                if p >= lastWeight && p < weightsRange[i] {    
+            var choice: AnyStruct = nil
+            for i, _ in choices {
+                if p >= lastWeight && p < weightsRange[i] {
                     // log("Picked Number: ".concat(p.toString()).concat("/".concat(totalWeight.toString())).concat(" corresponding to ".concat(i.toString())))
                     return choice 
                 }
