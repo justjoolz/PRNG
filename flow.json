@@ -12,12 +12,38 @@
     }
   },
   "contracts": {
-    "PRNG": "./cadence/contracts/PRNG.cdc"
+    "NonFungibleToken": {
+      "source": "./cadence/contracts/lib/NonFungibleToken.cdc",
+      "aliases": {
+        "emulator": "f8d6e0586b0a20c7"
+      }
+    },
+    "FungibleToken": {
+      "source": "./cadence/contracts/lib/FungibleToken.cdc",
+      "aliases": {
+        "emulator": "ee82856bf20e2aa6"
+      }
+    },
+    "MetadataViews": {
+      "source": "./cadence/contracts/lib/MetadataViews.cdc",
+      "aliases": {
+        "emulator": "f8d6e0586b0a20c7"
+      }
+    },
+    "PRNG": "./cadence/contracts/PRNG.cdc",
+    "Random": "./cadence/contracts/Random.cdc",
+    "ExampleNFT": "./cadence/contracts/ExampleNFT.cdc",
+    "ExampleNFT2": "./cadence/contracts/ExampleNFT2.cdc"
   },
   "deployments": {
     "emulator": {
       "emulator-account": [
-        "PRNG"
+        "NonFungibleToken",
+        "MetadataViews",
+        "PRNG",
+        "Random",
+        "ExampleNFT",
+        "ExampleNFT2"
       ]
     }
   }

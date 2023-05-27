@@ -52,6 +52,7 @@ pub contract PRNG {
             }
             let p = self.g() % totalWeight
             var lastWeight: UInt128 = 0
+            var choice: AnyStruct = nil
 
             for i, _ in choices {
                 if p >= lastWeight && p < weightsRange[i] {
